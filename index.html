@@ -278,6 +278,66 @@
             </div>
         </div>
     </section>
+<section id="team" class="team-section">
+  <div class="container">
+    <h2 class="section-title">Meet the Team</h2>
+    <div class="team-grid">
+      <div class="team-member">
+        <img src="images/baasit.jpg" alt="Baasit Sumra" class="team-photo" />
+        <h3 class="team-name">Baasit Sumra</h3>
+        <p class="team-role">Founder & Head Coach</p>
+        <p class="team-bio">
+          Trained at Elite Football Academy (UK, 2013), Kenya Premier League's Tusker FC (2014–2016), and Al-Faisaly in Saudi Arabia (2015).
+          Trialed with clubs in Jordan (Al Ahli, Al Wehdat, Sahab SC) and the US (LA Galaxy 2, Houston Dynamo 2, Richmond Kickers). 
+          Played in UPSL and currently in APSL. Represented Kenya U20 in 2014 vs. Lesotho.
+        </p>
+      </div>
+      <div class="team-member">
+        <img src="images/kia.jpg" alt="Kia Jacobs" class="team-photo" />
+        <h3 class="team-name">Kia Jacobs</h3>
+        <p class="team-role">Professional Soccer Player</p>
+        <p class="team-bio">
+          Kia is a dynamic soccer player with a strong tactical understanding and elite training experience. See her full CV below.
+        </p>
+        <a href="docs/kia-jacobs-cv.pdf" class="btn btn-secondary" target="_blank">View CV</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="videos" class="videos-section">
+  <div class="container">
+    <h2 class="section-title">Training Videos</h2>
+
+    <!-- Landscape Video Carousel -->
+    <div class="carousel-block">
+      <button class="carousel-btn left" onclick="scrollCarousel('landscape-carousel', -1)">&#10094;</button>
+      <div class="carousel-frame" id="landscape-carousel">
+        <video muted autoplay loop playsinline>
+          <source src="videos/landscape1.mp4" type="video/mp4">
+        </video>
+        <video muted autoplay loop playsinline>
+          <source src="videos/landscape2.mp4" type="video/mp4">
+        </video>
+      </div>
+      <button class="carousel-btn right" onclick="scrollCarousel('landscape-carousel', 1)">&#10095;</button>
+    </div>
+
+    <!-- Portrait Video Carousel -->
+    <div class="carousel-block">
+      <button class="carousel-btn left" onclick="scrollCarousel('portrait-carousel', -1)">&#10094;</button>
+      <div class="carousel-frame portrait" id="portrait-carousel">
+        <video muted autoplay loop playsinline>
+          <source src="videos/portrait1.mp4" type="video/mp4">
+        </video>
+        <video muted autoplay loop playsinline>
+          <source src="videos/portrait2.mp4" type="video/mp4">
+        </video>
+      </div>
+      <button class="carousel-btn right" onclick="scrollCarousel('portrait-carousel', 1)">&#10095;</button>
+    </div>
+  </div>
+</section>
+
 
     <!-- Equipment Section -->
     <section id="equipment" class="equipment">

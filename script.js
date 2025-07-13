@@ -37,6 +37,11 @@ function initPreloader() {
         }, 100);
     }
 }
+function scrollCarousel(id, direction) {
+  const carousel = document.getElementById(id);
+  const width = carousel.offsetWidth;
+  carousel.scrollBy({ left: width * direction, behavior: 'smooth' });
+}
 
 // Navigation functionality
 function initNavigation() {

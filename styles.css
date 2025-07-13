@@ -1760,3 +1760,133 @@ select:focus {
     line-height: 1.4;
   }
 }
+.team-bio {
+  font-size: var(--fs-sm);
+  margin-top: 0.5rem;
+  color: var(--text-dark);
+}
+.videos-section {
+  padding: 4rem 1rem;
+  background: var(--accent-blue-light);
+  text-align: center;
+}
+
+.video-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  justify-content: center;
+}
+
+.video-item video {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+.video-item.portrait video {
+  aspect-ratio: 9 / 16;
+}
+
+.video-item.landscape video {
+  aspect-ratio: 16 / 9;
+}
+.team-section {
+  padding: 4rem 1rem;
+  background: var(--accent-gray);
+  text-align: center;
+}
+
+.section-title {
+  font-size: var(--fs-4xl);
+  font-weight: var(--fw-bold);
+  color: var(--primary-blue);
+  margin-bottom: 2rem;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.team-member {
+  background: white;
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  box-shadow: var(--shadow-md);
+}
+
+.team-photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: var(--radius-full);
+  margin-bottom: 1rem;
+}
+
+.team-name {
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-lg);
+}
+
+.team-role {
+  color: var(--primary-blue);
+  font-size: var(--fs-sm);
+}
+.videos-section {
+  padding: 4rem 1rem;
+  background: var(--accent-blue-light);
+  text-align: center;
+}
+
+.carousel-block {
+  position: relative;
+  max-width: 100%;
+  margin: 3rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-frame {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  width: 100%;
+  max-width: 640px;
+  border-radius: var(--radius-lg);
+}
+
+.carousel-frame video {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  height: auto;
+  max-width: 100%;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.carousel-frame.portrait video {
+  max-width: 270px;
+  height: auto;
+}
+
+.carousel-btn {
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  margin: 0 1rem;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  z-index: 10;
+  transition: background 0.3s ease;
+}
+
+.carousel-btn:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
