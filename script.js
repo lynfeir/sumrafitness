@@ -37,12 +37,98 @@ function initPreloader() {
         }, 100);
     }
 }
-function scrollCarousel(id, direction) {
-  const carousel = document.getElementById(id);
-  const width = carousel.offsetWidth;
-  carousel.scrollBy({ left: width * direction, behavior: 'smooth' });
+// Enhanced carousel functionality
+function scrollCarousel(carouselId, direction) {
+  const carousel = document.getElementById(carouselId);
+  const scrollAmount = carousel.offsetWidth;
+  
+  if (direction === 1) {
+    carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  } else {
+    carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+  }
+  
+  // Add ripple effect to button
+  const button = event.target;
+  const ripple = document.createElement('span');
+  ripple.className = 'button-ripple';
+  button.appendChild(ripple);
+  
+  setTimeout(() => {
+    ripple.remove();
+  }, 300);
 }
 
+// Auto-play carousel (optional)
+function initAutoPlay() {
+  const carousels = ['landscape-carousel', 'portrait-carousel'];
+  
+  carousels.forEach(carouselId => {
+    setInterval(() => {
+      scrollCarousel(carouselId, 1);
+    }, 5000); // Change every 5 seconds
+  });
+}
+
+// Video click to fullscreen
+function initVideoInteractions() {
+  const videos = document.querySelectorAll('.carousel-frame video');
+  
+  videos.forEach(video => {
+    video.addEventListener('click', function() {
+      if (video.requestFullscreen) {
+        video.requestFullscreen();
+      }
+    });
+    
+    // Pause on hover (optional)
+    video.addEventListener('mouseenter', function() {
+      video.pause();
+    });
+    
+    video.addEventListener('mouseleave', function() {
+      video.play();
+    });
+  });
+}
+
+// Smooth scroll indicator for carousel
+function addScrollIndicators() {
+  const carousels = document.querySelectorAll('.carousel-frame');
+  
+  carousels.forEach(carousel => {
+    const videos = carousel.querySelectorAll('video');
+    const indicators = document.createElement('div');
+    indicators.className = 'carousel-indicators';
+    
+    videos.forEach((video, index) => {
+      const dot = document.createElement('span');
+      dot.className = 'indicator-dot';
+      if (index === 0) dot.classList.add('active');
+      indicators.appendChild(dot);
+    });
+    
+    carousel.parentElement.appendChild(indicators);
+    
+    // Update active indicator on scroll
+    carousel.addEventListener('scroll', () => {
+      const scrollLeft = carousel.scrollLeft;
+      const itemWidth = carousel.offsetWidth;
+      const activeIndex = Math.round(scrollLeft / itemWidth);
+      
+      indicators.querySelectorAll('.indicator-dot').forEach((dot, index) => {
+        dot.classList.toggle('active', index === activeIndex);
+      });
+    });
+  });
+}
+
+// Initialize when page loads
+document.addEventListener('DOMContentLoaded', function() {
+  initVideoInteractions();
+  addScrollIndicators();
+  // initAutoPlay(); // Uncomment if you want auto-play
+});
 // Navigation functionality
 function initNavigation() {
     const navbar = document.getElementById('navbar');
