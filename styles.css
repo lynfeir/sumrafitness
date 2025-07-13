@@ -303,6 +303,7 @@ body {
   align-items: center;
   background: var(--gradient-primary);
   overflow: hidden;
+  padding-top: 100px; /* or whatever height your navbar is (e.g., 80px) */
 }
 
 .hero-background {
@@ -1517,6 +1518,11 @@ body {
     padding: var(--space-2xl) 0;
   }
 
+  @media (max-width: 768px) {
+  .hero {
+    padding-top: 120px; /* slightly more for mobile menus if needed */
+  }
+}
   /* Hero Section */
   .hero-title {
     font-size: var(--fs-3xl);
