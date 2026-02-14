@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-navy: #0f172a;
+  --color-navy-light: #1e293b;
+  --color-navy-mid: #162035;
+  --color-blue: #2563eb;
+  --color-blue-dark: #1d4ed8;
+  --color-blue-light: #3b82f6;
+  --color-blue-glow: #60a5fa;
+  --color-ember: #f59e0b;
+  --color-ember-light: #fbbf24;
+  --color-white: #ffffff;
+  --color-gray-100: #f8fafc;
+  --color-gray-200: #e2e8f0;
+  --color-gray-300: #cbd5e1;
+  --color-gray-400: #94a3b8;
+  --color-gray-500: #64748b;
+  --font-sans: "Poppins", sans-serif;
+  --font-display: "Orbitron", sans-serif;
+  --font-body: "Roboto", sans-serif;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-navy);
+  color: var(--color-white);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-navy);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-blue);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-blue-light);
+}
+
+/* Forge Bar glow effect */
+.forge-bar {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-blue), var(--color-blue-light), var(--color-blue), transparent);
+  position: relative;
+}
+.forge-bar::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.3), rgba(59, 130, 246, 0.5), rgba(37, 99, 235, 0.3), transparent);
+  filter: blur(4px);
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-blue-light), var(--color-blue), var(--color-blue-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Ember particle animation */
+@keyframes float-up {
+  0% { transform: translateY(0) translateX(0) scale(1); opacity: 0.8; }
+  50% { transform: translateY(-30px) translateX(10px) scale(0.6); opacity: 0.4; }
+  100% { transform: translateY(-60px) translateX(-5px) scale(0.2); opacity: 0; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(37, 99, 235, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(37, 99, 235, 0.6); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes forge-pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* Selection color */
+::selection {
+  background: rgba(37, 99, 235, 0.3);
+  color: var(--color-white);
+}
+
+/* Focus visible for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--color-blue);
+  outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
